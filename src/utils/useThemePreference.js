@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState, useContext } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
 import { useConfigActions } from './usePersistantSettings'
 
