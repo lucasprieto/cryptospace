@@ -1,0 +1,14 @@
+{
+    "name": "ftx-safeboard-backend",
+    "version": "0.1.0",
+    "private": true,
+    "dependencies": {
+    },
+    "scripts": {
+        "start": "node cors.js"
+    },
+    "devDependencies": {
+      "cors-anywhere": "^0.4.4"
+    }
+  }
+  

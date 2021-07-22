@@ -1,0 +1,16 @@
+{
+  "name": "assets",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "download": "node download.js",
+    "deploy": "cp -rf ./img ../webapp/public/crypto-assets"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "coingecko-api": "^1.0.10",
+    "csv-parse": "^4.16.0",
+    "lodash": "^4.17.21"
+  }
+}
