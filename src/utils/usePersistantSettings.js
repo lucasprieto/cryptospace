@@ -8,7 +8,7 @@ const SettingsContext = createContext()
 SettingsContext.displayName = 'AppSettings'
 
 function SettingsProvider({ children }) {
-    const [storedState, setStoredState] = useLocalStorage('ftx-safeboard-settings')
+    const [storedState, setStoredState] = useLocalStorage('cryptospace-settings')
     const [settings, actions] = useSettings(storedState)
 
     useEffect(() => {

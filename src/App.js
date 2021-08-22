@@ -1,6 +1,6 @@
 import React from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import { createMuiTheme as createTheme, MuiThemeProvider } from '@material-ui/core/styles';
+import { createTheme, MuiThemeProvider } from '@material-ui/core/styles';
 import {
   BrowserRouter as Router,
   Switch,
@@ -26,8 +26,8 @@ function App() {
 
   return (
     <React.Fragment>
-      <CssBaseline />
       <MuiThemeProvider theme={themes[themeType]}>
+        <CssBaseline />
         <Router>
           <DashLayout>
             <Switch>

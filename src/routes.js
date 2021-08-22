@@ -8,12 +8,21 @@ const routes =  [
         icon: Icons.Home,
         route: '/',
         view: Views.HomeView,
+        exact: true,
     },
     {
         name: 'Positions',
         icon: Icons.TrendingUp,
         route: '/positions',
-        view: Views.PositionsView
+        view: Views.PositionsView,
+        exact: false,
+    },
+    {
+        name: 'Wallets',
+        icon: Icons.TrendingUp,
+        route: '/wallets',
+        view: Views.WalletsView,
+        exact: false,
     },
 ]
 
