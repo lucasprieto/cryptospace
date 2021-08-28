@@ -17,9 +17,11 @@ const reducer = (state, action) => {
 function useSettings(defaultState) {
     const initialState = {
         themeType: 'light',
-        wallets: [
-            { platform: "eth", address: "0x9708416338Ff224fDCA6b61C84460c4239c5Cb57" }
-        ],
+        supported: {
+            exchanges: [
+                { id: 'ftx', name: 'FTX' }
+            ]
+        },
         ...defaultState
     }
 

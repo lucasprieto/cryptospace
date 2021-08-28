@@ -6,7 +6,8 @@ function PositionsView() {
     return (
         <div>
             <h3>Positions</h3>
-            <PositionCard ticker="BTC" usd={45000} value={45000} />
+            <PositionCard ticker="bitcoin" />
+            <PositionCard ticker="bitcoin" />
         </div>
     )
 }

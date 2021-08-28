@@ -1,20 +1,30 @@
 const mongoose = require("mongoose")
 
-const url = process.env.MONGO_DATABASE
+const {
+    DB_HOST,
+    DB_NAME,
+    DB_USER,
+    DB_PASS
+} = process.env
 
-const connect = async (options = {}) => {
-    try {
-        await mongoose.connect(url, {
+let conn = null
+
+module.exports = async () => {
+    if (conn == null) {
+        conn = mongoose.connect(`mongodb+srv://${DB_HOST}/${DB_NAME}?retryWrites=true&w=majority`, {
             useNewUrlParser: true,
-            ...options
-        })
-
-    } catch (error) {
-        // handle connection error
-        console.error(error)
+            useUnifiedTopology: true,
+            bufferCommands: false,
+            serverSelectionTimeoutMS: 4500,
+            autoCreate: false,
+            auth: {
+                user: DB_USER,
+                password: DB_PASS
+            }
+        }).then(() => mongoose)
+        
+        await conn
     }
-}
 
-module.exports = {
-    connect
+    return conn
 }

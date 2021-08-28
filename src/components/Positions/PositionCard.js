@@ -9,6 +9,7 @@ import {
 } from '@material-ui/core'
 import { Skeleton } from '@material-ui/lab'
 import MoreVertIcon from '@material-ui/icons/MoreVert'
+import CandlestickPlain from '../Charts/CandlestickPlain';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -32,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
     },
   }))
 
-function PositionCard({ ticker, usd, value }) {
+function PositionCard({ ticker }) {
     const classes = useStyles();
 
     return (
@@ -55,11 +56,11 @@ function PositionCard({ ticker, usd, value }) {
                     <MoreVertIcon />
                 </IconButton>
                 }
-                title="Shrimp and Chorizo Paella"
-                subheader="September 14, 2016"
+                title={ticker}
             />
-            <span>USD: {usd}</span>
-            <span>Size: {value}</span>
+            <CardContent>
+                <CandlestickPlain ticker={ticker} />
+            </CardContent>
         </Card>
     )
 }

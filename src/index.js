@@ -22,6 +22,7 @@ ReactDOM.render(
         audience={process.env.REACT_APP_AUTH0_AUDIENCE}
         clientId={process.env.REACT_APP_AUTH0_ID}
         redirectUri={window.location.origin}
+        scope="read:current_user update:current_user_metadata"
         onRedirectCallback={onRedirectCallback}
       >
         <App />

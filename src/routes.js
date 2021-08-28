@@ -18,8 +18,15 @@ const routes =  [
         exact: false,
     },
     {
+        name: 'Exchanges',
+        icon: Icons.Web,
+        route: '/exchanges',
+        view: Views.ExchangesView,
+        exact: false,
+    },
+    {
         name: 'Wallets',
-        icon: Icons.TrendingUp,
+        icon: Icons.AccountBalanceWallet,
         route: '/wallets',
         view: Views.WalletsView,
         exact: false,
