@@ -38,6 +38,7 @@ export const useApi = (url, options = {}) => {
             }
         }
         apiCall()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [refreshIndex])
 
     return {

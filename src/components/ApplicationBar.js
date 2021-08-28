@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import IconButton from '@material-ui/core/IconButton';
 import Button from '@material-ui/core/Button';
@@ -12,7 +12,6 @@ import Avatar from "@material-ui/core/Avatar";
 import Divider from "@material-ui/core/Divider"
 
 import { useAuth0 } from "@auth0/auth0-react";
-import { useApi } from '../utils/useApi';
 
 // import { useLocation } from 'react-router-dom';
 
