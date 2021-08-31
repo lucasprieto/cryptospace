@@ -34,7 +34,8 @@
   "devDependencies": {
     "axios": "^0.21.1",
     "csv-parse": "^4.16.0",
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.21",
+    "prettier": "^2.3.2"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -42,7 +43,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "assets:download": "node assets.js",
-    "assets:deploy": "cp -rf ./img ../webapp/public/crypto-assets"
+    "assets:deploy": "cp -rf ./img ../webapp/public/crypto-assets",
+    "format:web": "prettier --write ./src/{**/*.js,*.js}"
   },
   "eslintConfig": {
     "extends": [

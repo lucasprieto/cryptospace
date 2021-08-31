@@ -4,7 +4,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Sidebar from './Sidebar';
 import ApplicationBar from './ApplicationBar';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
   },
@@ -29,4 +29,4 @@ function DashLayout({ children }) {
   );
 }
 
-export default DashLayout
+export default DashLayout;

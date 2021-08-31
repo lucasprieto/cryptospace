@@ -7,11 +7,11 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
-import MenuIcon from "@material-ui/icons/Menu";
-import Avatar from "@material-ui/core/Avatar";
-import Divider from "@material-ui/core/Divider"
+import MenuIcon from '@material-ui/icons/Menu';
+import Avatar from '@material-ui/core/Avatar';
+import Divider from '@material-ui/core/Divider';
 
-import { useAuth0 } from "@auth0/auth0-react";
+import { useAuth0 } from '@auth0/auth0-react';
 
 // import { useLocation } from 'react-router-dom';
 
@@ -40,75 +40,64 @@ function ApplicationBar({ children }) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
 
-  const handleMenu = (event) => {
+  const handleMenu = event => {
     setAnchorEl(event.currentTarget);
   };
 
-  const handleClose = (fnct) => () => {
+  const handleClose = fnct => () => {
     setAnchorEl(null);
     if (fnct) {
-      fnct()
+      fnct();
     }
   };
 
   return (
     <AppBar position="fixed" className={classes.appBar}>
-        <Toolbar>
-            <IconButton
-              edge="start"
-              className={classes.menuButton}
-              color="inherit"
-              aria-label="menu"
+      <Toolbar>
+        <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+          <MenuIcon />
+        </IconButton>
+        <Typography variant="h6" className={classes.title}>
+          Crypto Dashboard
+        </Typography>
+        {isAuthenticated ? (
+          <div>
+            <Button
+              aria-label="account of current user"
+              aria-controls="menu-appbar"
+              aria-haspopup="true"
+              onClick={handleMenu}
+              endIcon={<Avatar variant="rounded" className={classes.userImage} alt={user.name} src={user.picture} />}
             >
-              <MenuIcon />
-            </IconButton>
-            <Typography variant="h6" className={classes.title}>
-              Crypto Dashboard
-            </Typography>
-            { isAuthenticated ? (
-              <div>
-                <Button
-                  aria-label="account of current user"
-                  aria-controls="menu-appbar"
-                  aria-haspopup="true"
-                  onClick={handleMenu}
-                  endIcon={
-                    <Avatar variant="rounded" className={classes.userImage} alt={user.name} src={user.picture} />
-                  }
-                >
-                  {user.name}
-                </Button>
-                <Menu
-                  id="menu-appbar"
-                  anchorEl={anchorEl}
-                  anchorOrigin={{
-                    vertical: 'bottom',
-                    horizontal: 'right',
-                  }}
-                  getContentAnchorEl={null}
-                  keepMounted
-                  transformOrigin={{
-                    vertical: 'top',
-                    horizontal: 'right',
-                  }}
-                  open={open}
-                  onClose={handleClose()}
-                >
-                  <MenuItem onClick={handleClose()}>Profile</MenuItem>
-                  <Divider />
-                  <MenuItem onClick={handleClose(logout)}>Logout</MenuItem>
-                </Menu>
-              </div>
-            ) : (
-              <Button
-                onClick={loginWithRedirect}
-              >
-                Login
-              </Button>
-            )}
-        </Toolbar>
+              {user.name}
+            </Button>
+            <Menu
+              id="menu-appbar"
+              anchorEl={anchorEl}
+              anchorOrigin={{
+                vertical: 'bottom',
+                horizontal: 'right',
+              }}
+              getContentAnchorEl={null}
+              keepMounted
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              open={open}
+              onClose={handleClose()}
+            >
+              <MenuItem onClick={handleClose()}>Profile</MenuItem>
+              <Divider />
+              <MenuItem onClick={handleClose(logout)}>Logout</MenuItem>
+            </Menu>
+          </div>
+        ) : (
+          <Button onClick={loginWithRedirect}>Login</Button>
+        )}
+      </Toolbar>
     </AppBar>
   );
 }
 
-export default ApplicationBar
+export default ApplicationBar;

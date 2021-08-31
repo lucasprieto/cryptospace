@@ -7,12 +7,9 @@ import App from './App';
 import { SettingsProvider } from './utils/usePersistantSettings';
 // import reportWebVitals from './reportWebVitals';
 
-const onRedirectCallback = (appState) => {
-  return (
-    <Redirect to={appState && appState.returnTo ? appState.returnTo : window.location.pathname} />
-  )
+const onRedirectCallback = appState => {
+  return <Redirect to={appState && appState.returnTo ? appState.returnTo : window.location.pathname} />;
 };
-
 
 ReactDOM.render(
   <React.StrictMode>
@@ -29,7 +26,7 @@ ReactDOM.render(
       </Auth0Provider>
     </SettingsProvider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById('root'),
 );
 
 // If you want to start measuring performance in your app, pass a function
