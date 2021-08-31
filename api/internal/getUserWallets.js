@@ -10,11 +10,10 @@ module.exports = async (req, res) => {
     }
 
     await connectToDb()
-    
+
     const {
-        address,
-        balance
+        user
     } = req.body
-    const doc = await Wallet.create({ user: token.sub, address, balance })
-    res.status(200).send(doc)
+    const docs = await Wallet.find({ user })
+    res.status(200).send(docs)
 }

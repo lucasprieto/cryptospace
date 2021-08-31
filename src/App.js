@@ -1,6 +1,6 @@
 import React from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import { createTheme, MuiThemeProvider } from '@material-ui/core/styles';
+import { unstable_createMuiStrictModeTheme as createTheme, MuiThemeProvider } from '@material-ui/core/styles';
 import {
   BrowserRouter as Router,
   Switch,

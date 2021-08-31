@@ -34,17 +34,6 @@ function useCoingeckoOhlc(ticker, options = { days: 1, currency: 'usd' } ) {
     const url = `${ticker}/ohlc?vs_currency=${currency}&days=${days}`
     const fetcher = (t) => fetch(`https://api.coingecko.com/api/v3/coins/${t}`).then(res => res.json())
 
-    // const customCompareMiddleware = (next) => {
-    //     return (key, fet, config) => {
-    //         const { cache } = config
-    //         const { error, data } = cache.get(key)
-    //         if (!error && data) {
-    //             config.compare = (a, b) => a[a.length-1][0] === b[b.length-1][0]
-    //         }
-    //         return next(key, fet, config)
-    //     }
-    // }
-
     const expireMiddleware = (next) => {
         return (key, fet, config) => {
             const { cache } = config
